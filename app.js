@@ -5,8 +5,6 @@ import path from 'path';
 require('dotenv').config();
 
 const app = express();
-
-
 app.use(morgan('tiny'));
 app.use(cors());
 app.use(express.json());
