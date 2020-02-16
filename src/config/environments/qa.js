@@ -1,7 +1,7 @@
 module.exports = {
     PORT: 9012,
     DB: {
-        user: 'mysql',
+        username: 'mysql',
         password: 'root',
         database: 'edificios_qa',
         host: 'localhost',

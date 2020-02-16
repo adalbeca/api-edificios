@@ -2,9 +2,12 @@ require('dotenv').config();
 const container = require('./api/container');
 
 const application = container.resolve('app');
+const db = container.resolve('db');
 
 application.start()
-    .catch(error => {
-     console.log(error);
-     process.exit();
+    .then(async () => {
+        await db.sequelize.sync();
     })
+    .catch((error) => {
+        console.log(error);
+    });

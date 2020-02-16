@@ -1,6 +1,7 @@
 const PRODUCTION = require('./production');
-const DEVELOPMENT= require('./development');
-const QA= require('./qa');
+const DEVELOPMENT = require('./development');
+const QA = require('./qa');
+
 const { NODE_ENV } = process.env;
 
 let currentENV = DEVELOPMENT;
