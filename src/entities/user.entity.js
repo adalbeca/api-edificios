@@ -1,18 +1,18 @@
-module.exports = (sequileze, DataTypes) => sequileze.define(
+module.exports = (sequelize, DataType) => sequelize.define(
     'users',
     {
         id: {
-            type: DataTypes.BIGINT,
+            type: DataType.BIGINT,
             allowNull: false,
             primaryKey: true,
             autoIncrement: true,
         },
         name: {
-            type: DataTypes.STRING,
+            type: DataType.STRING,
             allowNull: false,
         },
         lastname: {
-            type: DataTypes.STRING,
+            type: DataType.STRING,
             allowNull: true,
         },
     },

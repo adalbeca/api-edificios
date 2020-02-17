@@ -1,4 +1,5 @@
+import UserService from './user.service';
 
 module.exports = {
-    UserService: require('./user.services'),
+    userService: new UserService(),
 };

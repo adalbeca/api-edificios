@@ -29,5 +29,6 @@ module.exports = {
     "indent": ["error", 4 ],
     "semi": ["error", "always"],
     "quotes": ["error","single"],
+    "class-methods-use-this": 0,
   },
 };

@@ -1,13 +1,32 @@
-require('dotenv').config();
-const container = require('./api/container');
+import dotenv from 'dotenv';
+import express from 'express';
+import bodyParser from 'body-parser';
+import morgan from 'morgan';
 
-const application = container.resolve('app');
-const db = container.resolve('db');
+dotenv.config();
+const routes = require('./routes');
+const db = require('./entities');
 
-application.start()
-    .then(async () => {
-        await db.sequelize.sync();
-    })
-    .catch((error) => {
-        console.log(error);
-    });
+
+const app = express();
+app.use(bodyParser.json())
+    .use(bodyParser.urlencoded({ extended: true }))
+    .use(morgan('tiny'));
+
+
+app.get('/', (req, res) => {
+    res.send('Hi');
+});
+
+app.use('/', routes);
+
+app.listen(process.env.PORT, () => {
+    db.sequelize.sync()
+        .then(() => {
+            console.log('Connected BD');
+            console.log('Starting in Port', process.env.PORT);
+        })
+        .catch((error) => {
+            console.log(error);
+        });
+});
