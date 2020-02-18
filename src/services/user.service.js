@@ -14,7 +14,7 @@ class UserService {
     }
 
     async createUser(user) {
-        const userMapped = userMapper.userDbMapper(user);
+        const userMapped = userMapper.userDbMapper(user);<
         const createdUser = await users.create(userMapped);
         return createdUser;
     }

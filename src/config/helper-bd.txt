@@ -1,0 +1,17 @@
+//user 
+sequelize model:create --name User --attributes dni:integer,cuil:integer,name:string,lastname:string,email:string,password:string,fk_role:integer,address:string,fk_city:integer,fk_country:integer,phone:string,mobile:string,photo:string,fk_status:string
+
+//role
+sequelize model:create --name Role --attributes role:string,fk_status:integer
+
+//country
+sequelize model:create --name Country --attributes country:string,fk_status:integer
+
+//city
+sequelize model:create --name City --attributes city:string,fk_status:integer
+
+//status
+sequelize model:create --name Status --attributes status:string
+
+//client
+sequelize model:create --name Client --attributes dni:integer,cuil:integer,name:string,lastname:string,email:string,phone:string,mobile:string,address:string,fk_country:integer,fk_city:integer
