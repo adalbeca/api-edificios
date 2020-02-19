@@ -31,14 +31,32 @@ module.exports = {
         address: {
             type: Sequelize.STRING,
         },
+        photo: {
+            type: Sequelize.STRING,
+        },
         fk_country: {
             type: Sequelize.INTEGER,
+            onDelete: 'CASCADE',
+            references: {
+                model: 'Countries',
+                key: 'id',
+            },
         },
         fk_city: {
             type: Sequelize.INTEGER,
+            onDelete: 'CASCADE',
+            references: {
+                model: 'Cities',
+                key: 'id',
+            },
         },
         fk_status: {
             type: Sequelize.INTEGER,
+            onDelete: 'CASCADE',
+            references: {
+                model: 'Statuses',
+                key: 'id',
+            },
         },
         createdAt: {
             allowNull: false,

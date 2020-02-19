@@ -12,6 +12,11 @@ module.exports = {
         },
         fk_status: {
             type: Sequelize.INTEGER,
+            onDelete: 'CASCADE',
+            references: {
+                model: 'Statuses',
+                key: 'id',
+            },
         },
         createdAt: {
             allowNull: false,

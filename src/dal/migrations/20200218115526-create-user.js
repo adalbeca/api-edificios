@@ -27,15 +27,30 @@ module.exports = {
         },
         fk_role: {
             type: Sequelize.INTEGER,
+            onDelete: 'CASCADE',
+            references: {
+                model: 'Roles',
+                key: 'id',
+            },
         },
         address: {
             type: Sequelize.STRING,
         },
         fk_city: {
             type: Sequelize.INTEGER,
+            onDelete: 'CASCADE',
+            references: {
+                model: 'Cities',
+                key: 'id',
+            },
         },
         fk_country: {
             type: Sequelize.INTEGER,
+            onDelete: 'CASCADE',
+            references: {
+                model: 'Countries',
+                key: 'id',
+            },
         },
         phone: {
             type: Sequelize.STRING,
@@ -47,7 +62,12 @@ module.exports = {
             type: Sequelize.STRING,
         },
         fk_status: {
-            type: Sequelize.STRING,
+            type: Sequelize.INTEGER,
+            onDelete: 'CASCADE',
+            references: {
+                model: 'Statuses',
+                key: 'id',
+            },
         },
         createdAt: {
             allowNull: false,

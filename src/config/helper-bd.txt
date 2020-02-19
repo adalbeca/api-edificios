@@ -17,3 +17,5 @@ sequelize model:create --name Status --attributes status:string
 sequelize model:create --name Client --attributes dni:integer,cuil:integer,name:string,lastname:string,email:string,phone:string,mobile:string,address:string,fk_country:integer,fk_city:integer,fk_status:integer
 
 
+//execute migrate
+sequelize db:migrate --url "mysql://root:root@localhost:3306/buildings"

@@ -14,7 +14,7 @@ module.exports = (sequelize, DataTypes) => {
         phone: DataTypes.STRING,
         mobile: DataTypes.STRING,
         photo: DataTypes.STRING,
-        fk_status: DataTypes.STRING,
+        fk_status: DataTypes.INTEGER,
     }, {});
     User.associate = function (models) {
         User.belongsTo(models.Role);
