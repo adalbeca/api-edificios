@@ -5,6 +5,7 @@ module.exports = (sequelize, DataTypes) => {
         fk_status: DataTypes.INTEGER,
     }, {});
     Country.associate = function (models) {
+        Country.belongsTo(models.Status);
         Country.hasMany(models.Users, {
             foreignKey: 'fk_country',
             as: 'users',

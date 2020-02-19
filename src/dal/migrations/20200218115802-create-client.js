@@ -37,6 +37,9 @@ module.exports = {
         fk_city: {
             type: Sequelize.INTEGER,
         },
+        fk_status: {
+            type: Sequelize.INTEGER,
+        },
         createdAt: {
             allowNull: false,
             type: Sequelize.DATE,

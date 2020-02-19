@@ -14,4 +14,6 @@ sequelize model:create --name City --attributes city:string,fk_status:integer
 sequelize model:create --name Status --attributes status:string
 
 //client
-sequelize model:create --name Client --attributes dni:integer,cuil:integer,name:string,lastname:string,email:string,phone:string,mobile:string,address:string,fk_country:integer,fk_city:integer
+sequelize model:create --name Client --attributes dni:integer,cuil:integer,name:string,lastname:string,email:string,phone:string,mobile:string,address:string,fk_country:integer,fk_city:integer,fk_status:integer
+
+

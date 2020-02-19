@@ -11,9 +11,12 @@ module.exports = (sequelize, DataTypes) => {
         address: DataTypes.STRING,
         fk_country: DataTypes.INTEGER,
         fk_city: DataTypes.INTEGER,
+        fk_status: DataTypes.INTEGER,
     }, {});
     Client.associate = function (models) {
-    // associations can be defined here
+        Client.belongsTo(models.Country);
+        Client.belongsTo(models.City);
+        Client.belongsTo(models.Status);
     };
     return Client;
 };

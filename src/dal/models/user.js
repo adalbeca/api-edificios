@@ -17,10 +17,10 @@ module.exports = (sequelize, DataTypes) => {
         fk_status: DataTypes.STRING,
     }, {});
     User.associate = function (models) {
-        User.belongsTo(models.Country);
-        User.belongsTo(models.City);
-        User.belongsTo(models.Status);
         User.belongsTo(models.Role);
+        User.belongsTo(models.City);
+        User.belongsTo(models.Country);
+        User.belongsTo(models.Status);
     };
     return User;
 };
