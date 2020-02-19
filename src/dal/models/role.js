@@ -2,13 +2,13 @@
 module.exports = (sequelize, DataTypes) => {
     const Role = sequelize.define('Role', {
         role: DataTypes.STRING,
-        fk_status: DataTypes.INTEGER,
+        fkStatus: DataTypes.INTEGER,
     }, {});
     Role.associate = function (models) {
-        Role.belongsTo(models.Status);
-        Role.hasMany(models.Users, {
-            foreignKey: 'fk_role',
-            as: 'users',
+    // associations can be defined here
+        Role.belongsTo(models.Status, {
+            foreignKey: 'fkStatus',
+            sourceKey: 'id',
         });
     };
     return Role;

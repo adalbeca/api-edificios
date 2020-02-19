@@ -9,15 +9,24 @@ module.exports = (sequelize, DataTypes) => {
         phone: DataTypes.STRING,
         mobile: DataTypes.STRING,
         address: DataTypes.STRING,
-        photo: DataTypes.STRING,
-        fk_country: DataTypes.INTEGER,
-        fk_city: DataTypes.INTEGER,
-        fk_status: DataTypes.INTEGER,
+        fkCountry: DataTypes.INTEGER,
+        fkCity: DataTypes.INTEGER,
+        fkStatus: DataTypes.INTEGER,
     }, {});
     Client.associate = function (models) {
-        Client.belongsTo(models.Country);
-        Client.belongsTo(models.City);
-        Client.belongsTo(models.Status);
+    // associations can be defined here
+        Client.belongsTo(models.City, {
+            foreignKey: 'fkCity',
+            sourceKey: 'id',
+        });
+        Client.belongsTo(models.Country, {
+            foreignKey: 'fkCountry',
+            sourceKey: 'id',
+        });
+        Client.belongsTo(models.Status, {
+            foreignKey: 'fkStatus',
+            sourceKey: 'id',
+        });
     };
     return Client;
 };

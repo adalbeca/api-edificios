@@ -1,16 +1,16 @@
 
 module.exports = {
-    up: (queryInterface, Sequelize) => queryInterface.createTable('Countries', {
+    up: (queryInterface, Sequelize) => queryInterface.createTable('Cities', {
         id: {
             allowNull: false,
             autoIncrement: true,
             primaryKey: true,
             type: Sequelize.INTEGER,
         },
-        country: {
+        city: {
             type: Sequelize.STRING,
         },
-        fk_status: {
+        fkStatus: {
             type: Sequelize.INTEGER,
             onDelete: 'CASCADE',
             references: {
@@ -27,5 +27,5 @@ module.exports = {
             type: Sequelize.DATE,
         },
     }),
-    down: (queryInterface, Sequelize) => queryInterface.dropTable('Countries'),
+    down: (queryInterface, Sequelize) => queryInterface.dropTable('Cities'),
 };

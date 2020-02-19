@@ -2,17 +2,13 @@
 module.exports = (sequelize, DataTypes) => {
     const Country = sequelize.define('Country', {
         country: DataTypes.STRING,
-        fk_status: DataTypes.INTEGER,
+        fkStatus: DataTypes.INTEGER,
     }, {});
     Country.associate = function (models) {
-        Country.belongsTo(models.Status);
-        Country.hasMany(models.Users, {
-            foreignKey: 'fk_country',
-            as: 'users',
-        });
-        Country.hasMany(models.Clients, {
-            foreignKey: 'fk_country',
-            as: 'clients',
+    // associations can be defined here
+        Country.belongsTo(models.Status, {
+            foreignKey: 'fkStatus',
+            sourceKey: 'id',
         });
     };
     return Country;

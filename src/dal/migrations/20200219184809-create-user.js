@@ -1,6 +1,6 @@
 
 module.exports = {
-    up: (queryInterface, Sequelize) => queryInterface.createTable('Clients', {
+    up: (queryInterface, Sequelize) => queryInterface.createTable('Users', {
         id: {
             allowNull: false,
             autoIncrement: true,
@@ -22,27 +22,21 @@ module.exports = {
         email: {
             type: Sequelize.STRING,
         },
-        phone: {
+        password: {
             type: Sequelize.STRING,
         },
-        mobile: {
-            type: Sequelize.STRING,
+        fkRole: {
+            type: Sequelize.INTEGER,
+            onDelete: 'CASCADE',
+            references: {
+                model: 'Roles',
+                key: 'id',
+            },
         },
         address: {
             type: Sequelize.STRING,
         },
-        photo: {
-            type: Sequelize.STRING,
-        },
-        fk_country: {
-            type: Sequelize.INTEGER,
-            onDelete: 'CASCADE',
-            references: {
-                model: 'Countries',
-                key: 'id',
-            },
-        },
-        fk_city: {
+        fkCity: {
             type: Sequelize.INTEGER,
             onDelete: 'CASCADE',
             references: {
@@ -50,7 +44,24 @@ module.exports = {
                 key: 'id',
             },
         },
-        fk_status: {
+        fkCountry: {
+            type: Sequelize.INTEGER,
+            onDelete: 'CASCADE',
+            references: {
+                model: 'Countries',
+                key: 'id',
+            },
+        },
+        phone: {
+            type: Sequelize.STRING,
+        },
+        mobile: {
+            type: Sequelize.STRING,
+        },
+        photo: {
+            type: Sequelize.STRING,
+        },
+        fkStatus: {
             type: Sequelize.INTEGER,
             onDelete: 'CASCADE',
             references: {
@@ -67,5 +78,5 @@ module.exports = {
             type: Sequelize.DATE,
         },
     }),
-    down: (queryInterface, Sequelize) => queryInterface.dropTable('Clients'),
+    down: (queryInterface, Sequelize) => queryInterface.dropTable('Users'),
 };

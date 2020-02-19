@@ -7,20 +7,33 @@ module.exports = (sequelize, DataTypes) => {
         lastname: DataTypes.STRING,
         email: DataTypes.STRING,
         password: DataTypes.STRING,
-        fk_role: DataTypes.INTEGER,
+        fkRole: DataTypes.INTEGER,
         address: DataTypes.STRING,
-        fk_city: DataTypes.INTEGER,
-        fk_country: DataTypes.INTEGER,
+        fkCity: DataTypes.INTEGER,
+        fkCountry: DataTypes.INTEGER,
         phone: DataTypes.STRING,
         mobile: DataTypes.STRING,
         photo: DataTypes.STRING,
-        fk_status: DataTypes.INTEGER,
+        fkStatus: DataTypes.INTEGER,
     }, {});
     User.associate = function (models) {
-        User.belongsTo(models.Role);
-        User.belongsTo(models.City);
-        User.belongsTo(models.Country);
-        User.belongsTo(models.Status);
+    // associations can be defined here
+        User.belongsTo(models.Role, {
+            foreignKey: 'fkRole',
+            sourceKey: 'id',
+        });
+        User.belongsTo(models.City, {
+            foreignKey: 'fkCity',
+            sourceKey: 'id',
+        });
+        User.belongsTo(models.Country, {
+            foreignKey: 'fkCountry',
+            sourceKey: 'id',
+        });
+        User.belongsTo(models.Status, {
+            foreignKey: 'fkStatus',
+            sourceKey: 'id',
+        });
     };
     return User;
 };

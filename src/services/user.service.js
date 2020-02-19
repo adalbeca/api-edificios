@@ -1,11 +1,11 @@
-import db from '../entities';
+import db from '../dal/models';
 
 const { userMapper } = require('./mappers');
 
-const { users } = db;
+const { User } = db;
 class UserService {
     async getUser() {
-        const getUser = await users.findAll();
+        const getUser = await User.findAll();
         const user = getUser.map(userMapper.userDomainMapper);
         return ({
             status: 200,
@@ -14,8 +14,8 @@ class UserService {
     }
 
     async createUser(user) {
-        const userMapped = userMapper.userDbMapper(user);<
-        const createdUser = await users.create(userMapped);
+        const userMapped = userMapper.userDbMapper(user);
+        const createdUser = await User.create(userMapped);
         return createdUser;
     }
 }

@@ -1,7 +1,37 @@
 class UserMapper {
     userDbMapper(user) {
-        const { id, name, lastname } = user;
-        return { id, name, lastname };
+        const {
+            dni,
+            cuil,
+            name,
+            lastname,
+            email,
+            password,
+            fkRole,
+            address,
+            fkCity,
+            fkCountry,
+            phone,
+            mobile,
+            photo,
+            fkStatus,
+        } = user;
+        return {
+            dni,
+            cuil,
+            name,
+            lastname,
+            email,
+            password,
+            fkRole,
+            address,
+            fkCity,
+            fkCountry,
+            phone,
+            mobile,
+            photo,
+            fkStatus,
+        };
     }
 
     userDomainMapper(user) {

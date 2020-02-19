@@ -1,6 +1,6 @@
 
 module.exports = {
-    up: (queryInterface, Sequelize) => queryInterface.createTable('Users', {
+    up: (queryInterface, Sequelize) => queryInterface.createTable('Clients', {
         id: {
             allowNull: false,
             autoIncrement: true,
@@ -22,29 +22,16 @@ module.exports = {
         email: {
             type: Sequelize.STRING,
         },
-        password: {
+        phone: {
             type: Sequelize.STRING,
         },
-        fk_role: {
-            type: Sequelize.INTEGER,
-            onDelete: 'CASCADE',
-            references: {
-                model: 'Roles',
-                key: 'id',
-            },
+        mobile: {
+            type: Sequelize.STRING,
         },
         address: {
             type: Sequelize.STRING,
         },
-        fk_city: {
-            type: Sequelize.INTEGER,
-            onDelete: 'CASCADE',
-            references: {
-                model: 'Cities',
-                key: 'id',
-            },
-        },
-        fk_country: {
+        fkCountry: {
             type: Sequelize.INTEGER,
             onDelete: 'CASCADE',
             references: {
@@ -52,16 +39,15 @@ module.exports = {
                 key: 'id',
             },
         },
-        phone: {
-            type: Sequelize.STRING,
+        fkCity: {
+            type: Sequelize.INTEGER,
+            onDelete: 'CASCADE',
+            references: {
+                model: 'Cities',
+                key: 'id',
+            },
         },
-        mobile: {
-            type: Sequelize.STRING,
-        },
-        photo: {
-            type: Sequelize.STRING,
-        },
-        fk_status: {
+        fkStatus: {
             type: Sequelize.INTEGER,
             onDelete: 'CASCADE',
             references: {
@@ -78,5 +64,5 @@ module.exports = {
             type: Sequelize.DATE,
         },
     }),
-    down: (queryInterface, Sequelize) => queryInterface.dropTable('Users'),
+    down: (queryInterface, Sequelize) => queryInterface.dropTable('Clients'),
 };

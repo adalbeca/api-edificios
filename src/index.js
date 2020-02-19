@@ -5,7 +5,7 @@ import morgan from 'morgan';
 
 dotenv.config();
 const routes = require('./routes');
-const db = require('./dal');
+const db = require('./dal/models');
 
 
 const app = express();
